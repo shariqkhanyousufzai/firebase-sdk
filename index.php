@@ -69,6 +69,16 @@
             })
     })
     IntitalizeFireBaseMessaging();
+    
+//     for access tab
+    document.addEventListener("visibilitychange", function() {
+			  if(document.visibilityState == 'visible'){
+			  	$.getJSON( "<?=base_url('announcement/getunreadannouncement')?>", function(data) {
+						$('.notifyannouncement').html(data);
+						currentAnnouncementCount = data;
+				});
+			  }
+			});
 </script>
 </body>
 </html>
